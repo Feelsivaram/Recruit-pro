@@ -84,12 +84,10 @@
         </div>
 
         <div class="col-sm-3 search">
-            <mat-form-field>
-                <input type="text" matInput (keyup)="($event.target.value)" placeholder="Search">
-            </mat-form-field>
-        </div>
+            <input style="width:100px" class="form-control" type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search" aria-label="Search">
+          </div>
         <div class="col-sm-3 range">
-            <b>Show</b><input type="number" [value]="l">
+            <b style="padding-right:10px;">Showing</b> <input style="border-radius: 5px; width: 75px; height: 42px;" type="number" [value]="l">
 
         </div>
     </div>
