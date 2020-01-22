@@ -1,0 +1,25 @@
+.route {
+    float: left;
+}
+
+.header1 {
+    padding: 20px;
+    background-color: #053EDC;
+    color: white;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.navbar {
+    background-color: blue;
+    height: 150px;
+}
+
+.nav-item1 {
+    margin-right: 500px;
+    margin-left: 40px;
+}
+
+.nav-item {
+    font-size: 20px;
+    margin-left: 30px;
+}

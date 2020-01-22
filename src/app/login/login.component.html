@@ -1,0 +1,33 @@
+<body class="body">
+    <!-- <img src="../../assets/loginscreen-image.jpg"> -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="loginform">
+
+                <form #ref="ngForm" (ngSubmit)="submit(ref.value)">
+                    <div class="section">
+                        <h4> Recruit Pro. </h4>
+                    </div>
+                    <div class="m-4">
+
+                        <mat-form-field class="input">
+                            <input matInput name="emailid" placeholder="EmailID" [(ngModel)]="emailid" />
+                        </mat-form-field>
+                    </div>
+                    <div class="m-4">
+                        <mat-form-field class="input1">
+                            <input type="password" name="password" matInput placeholder="Password" [(ngModel)]="password" />
+                        </mat-form-field>
+                    </div>
+                    <!-- <a class="forgot">Forget password?</a> -->
+                    <div class="text-center">
+                        <button (click)="login1(ref.value)" class="loginbutton m-4">Login Recruit PRO </button></div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer">&copy;&nbsp;Copyrights 2019.All Rghts Reserved</footer>
+</body>

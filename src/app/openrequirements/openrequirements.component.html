@@ -1,0 +1,39 @@
+<h3 class="sub">Open Requirements</h3><br>
+<form class="example-form">
+    <mat-form-field class="input">
+        <input matInput placeholder="Client" value="">
+    </mat-form-field>
+    <mat-form-field class=" input">
+        <input matInput placeholder="Vendor " value=" ">
+    </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="jobtitle " value=" ">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <input matInput placeholder="skills" value=" ">
+    </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="visaType " value=" ">
+    </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="Rate " value=" ">
+    </mat-form-field>
+    <mat-form-field class=" input">
+        <input matInput placeholder="experience " value=" ">
+    </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="Contract Type" value=" ">
+    </mat-form-field>
+    <mat-form-field class=" input">
+        <input matInput placeholder="Assign a Job to Brd " value=" ">
+    </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="Location " name="location" [(ngModel)]="location" value=" ">
+    </mat-form-field>
+    <mat-form-field class=" input">
+        <input matInput placeholder="Number Of Requirements" name="numberofrequirements" [(ngModel)]="numberofreqirements " value=" ">
+    </mat-form-field><br>
+    <button class="mat-raised-button cancel" (click)="onNoClick()">Cancel</button>
+    <button class="mat-raised-button mat-primary save" (click)="save() ">Save</button>
+</form>

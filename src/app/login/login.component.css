@@ -1,0 +1,67 @@
+.body {
+    background-image: url(../../assets/loginscreen-image.jpg);
+    overflow-x: hidden;
+}
+
+.loginform {
+    position: relative;
+    background-color: white;
+    margin-top: 150px;
+    margin-left: 80%;
+    width: 100%;
+}
+
+.section {
+    background-color: #053EDC;
+    height: 70px;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.collapse {
+    background-color: white;
+}
+
+.footer {
+    background-color: #053EDC;
+    color: white;
+    text-align: center;
+    height: 55px;
+    width: 110%;
+    padding-top: 15px;
+    font-size: large;
+    margin-top: 209px;
+}
+
+.loginbutton {
+    background-color: #053EDC;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    margin-top: 30px;
+    margin-left: 125px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+}
+
+.forgot {
+    color: #053EDC;
+    margin-top: 30%;
+    padding-left: 55px;
+}
+
+.input {
+    border: 2px solid #F4E9FF;
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.input1 {
+    border: 2px solid #F4E9FF;
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+    margin-top: 20px;
+}
