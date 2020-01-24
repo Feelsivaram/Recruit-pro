@@ -1,0 +1,82 @@
+<!-- <button class="btn btn-primary" data-target="#reg" data-toggle="modal">add</button>
+<table *ngIf="stds" class="table">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </thead>
+  <tr *ngFor="let x of stds,let i=index">
+    <td>{{x.name}}</td>
+    <td>{{x.email}}</td>
+    <td>{{x.phone}}</td>
+    <td><button data-target="#edit" data-toggle="modal" class="btn btn-primary" (click)="toreadit(i)">Edit</button><button  (click)="delete(i)" >Remove</button></td>
+  </tr>
+</table>-->
+
+
+<!--add button modal to register-->
+<!-- <div class="modal" id="reg">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">register
+            <button class="close" data-dismiss="modal" >x</button>
+        </div>
+        <div class="modal-body">
+          <form #ref="ngForm" (ngSubmit)="regstudent(ref.value)">
+              <div class="m-4">
+                  <label class="form-group" for="">name</label>
+                  <input class="form-control" type="text" name="name" autocomplete="off" ngModel>
+              </div>
+              <div class="m-4">
+                  <label class="form-group" for="">EmailId</label>
+                  <input class="form-control" type="email" name="email" autocomplete="off" ngModel>
+              </div>
+              <div class="m-4">
+                  <label class="form-group" for="">Phone</label>
+                  <input class="form-control" type="number" name="phone" ngModel>
+              </div>
+             
+               <div class="text-center">
+              <button class="btn btn-success m-4 " type="submit" >register</button></div>
+          </form>
+        </div>
+        <div class="modal-footer"><button class="close" data-dismiss="modal">close</button></div>
+    </div>
+  </div>
+</div>-->
+
+<!--a modal to edit-->
+<!-- <div class="modal" id="edit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">edit /update
+            <button class="close" data-dismiss="modal">x</button>
+        </div>
+        <div class="modal-body">
+          <form #ref1="ngForm" *ngIf="oldobj" (ngSubmit)="edit(ref1.value,oldobj._id)">
+              <div class="m-4">
+                  <label class="form-group" for="">Name</label>
+                  <input class="form-control" type="text" name="name" [(ngModel)]="oldobj.name"  >
+              </div>
+              <div class="m-4">
+                  <label class="form-group" for="">Email</label>
+                  <input class="form-control" type="email" name="email" [(ngModel)]="oldobj.email">
+              </div>
+              <div class="m-4">
+                  <label class="form-group" for="">phone</label>
+                  <input class="form-control" type="number" name="phone" [(ngModel)]="oldobj.phone" >
+              </div>
+               <div class="text-center">
+              <button class="btn btn-primary m-4" type="submit" >save </button></div>
+          </form>
+        </div>
+        <div class="modal-footer"><button class="close" data-dismiss="modal">close</button></div>
+    </div>
+  </div>
+</div>
+
+
+
+ -->
+
+<router-outlet></router-outlet>
