@@ -1,0 +1,13 @@
+.loginbutton {
+    background-color: #053EDC;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    margin-top: 30px;
+    margin-left: 125px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+}
+.resume_name {
+    margin-left: 50px;
+    margin-top: 50px;
+}

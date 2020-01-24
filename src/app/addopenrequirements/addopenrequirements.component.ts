@@ -11,10 +11,11 @@ import { SrvRecord } from 'dns';
 import { ScheduleinterviewComponent } from '../scheduleinterview/scheduleinterview.component';
 import { ResumedatabaseComponent } from '../resumedatabase/resumedatabase.component';
 import { ReportgenerationComponent } from '../reportgeneration/reportgeneration.component';
+
 export interface DialogData {
   client:string;
-  vendor:string;
-  skills:string;
+ vendor:string;
+ skills:string;
 rate:string;
 visatype:string;
 experience:string;
@@ -24,31 +25,18 @@ numberofrequirements:string;
 contracttype:string;
 }
 
-export interface PeriodicElement {
-  client:string;
-  vendor:string;
-  skills:string;
-rate:string;
-visatype:string;
-experience:string;
-location:string;
-assignajobtobrd:string;
-numberofrequirements:string;
-contracttype:string;
-
-
-}
-const ELEMENT_DATA: PeriodicElement[] = [{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+const ELEMENT_DATA:DialogData [] = [{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
 {client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
-{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
-{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
-{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
-{client:'dhivya',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'}
-
-
+{client:'sutulu',vendor:'apparao',skills:'.net',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'jailo',vendor:'apparao',skills:'angular',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'lilly',vendor:'apparao',skills:'php',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'morya',vendor:'apparao',skills:'mongodb',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'kkoki',vendor:'apparao',skills:'java',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'koti',vendor:'apparao',skills:'.net',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'jkjgj',vendor:'apparao',skills:'angular',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'mnb',vendor:'apparao',skills:'php',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'},
+{client:'mnbc',vendor:'apparao',skills:'mongodb',rate:'500$',visatype:'h1b',experience:'5years',location:'newyork',assignajobtobrd:'sam',numberofrequirements:'200',contracttype:'tender'}
 ]
-
-
 
 @Component({
   selector: 'app-addopenrequirements',
@@ -67,16 +55,18 @@ export class AddopenrequirementsComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  applyFilter(search: string) {
+    this.dataSource.filter = search.trim().toLowerCase();
+    
+  }
+
 
   constructor(
     private router: Router, private ds: SService, 
-    private dialog:MatDialog) {
+    private dialog:MatDialog ) {
       
      }
-  applyFilter(filtervalue: string) {
-    this.dataSource.filter = filtervalue.trim().toLowerCase();
-    
-  }
+  
 
   
   // private dialogRef: MatDialogRef<OpenrequirementsComponent>,@Inject(MAT_DIALOG_DATA) public data: DialogData
@@ -100,20 +90,11 @@ export class AddopenrequirementsComponent implements OnInit {
  var l:any=ELEMENT_DATA.length;
 console.log(l);
   }
-  // closeModalDialog() {
-  //   this.dialogRef.close(); //set none css after close dialog
-  // }
-
   
-
-  logout(){
+ logout(){
     this.router.navigate(['/login'])
   }
 
-  // userUpdate() {
-  //   console.log('editclicked')
-
-  // }
   getFromTable() { }
 
   // postUserDetails(dataSource) {
@@ -148,27 +129,24 @@ console.log(l);
   //   this.v[i]={color:v};
   //  }
 
-  
+
   ceo:boolean;
   bdm:boolean;
   brd:boolean;
   
-  openDialog(obj):void {
+  openDialog(DialogData):void {
     const dialogRef = this.dialog.open(OpenrequirementsComponent, {
       width: '800px',
       height:'550px',
-     data:{}
-    
+      data:{
+        message:'DialogData'
+      }
+        
     });
 
-    this.dialog.open(OpenrequirementsComponent, dialogRef)
+   
+  }
 }
-}
-
-
-
-
-
 
   //   const dialogRef = this.dialogRef.open(AddopenrequirementsComponent, dialogRef) {
   //     width: '250px',
