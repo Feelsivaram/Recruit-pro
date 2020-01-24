@@ -1,0 +1,25 @@
+<h3 class="sub">Submission Tracer</h3><br>
+<mat-form-field class="example-full-width input">
+    <input matInput name="trackerid" [(ngModel)]="trackerid" placeholder="TrackerId" value="">
+</mat-form-field>
+<mat-form-field class="input">
+    <input type="text" matInput name="clientsubmission" [(ngModel)]="clientsubmission" placeholder="Client Submission" value="">
+</mat-form-field>
+<mat-form-field class="input">
+    <input matInput name="date" [(ngModel)]="date" placeholder="Date" value="">
+</mat-form-field>
+<mat-form-field class="input">
+    <input matInput name="interviewschedule" [(ngModel)]="interviewschedule" placeholder="Interview Schedule" value="">
+</mat-form-field>
+<mat-form-field class="input">
+    <input matInput name="jobid" [(ngModel)]="jobid" placeholder="JobId" value="">
+</mat-form-field>
+<mat-form-field class="input">
+    <textarea matInput name="remarks" [(ngModel)]="remarks" placeholder="Remarks" value="">
+    </textarea>
+</mat-form-field>
+<mat-form-field class="input">
+    <input matInput name="jobtitle" [(ngModel)]="jobtitle" placeholder="Job Title" value="">
+</mat-form-field><br>
+<button class="mat-raised-button cancel" (click)="onNoClick()">Cancel</button>
+<button class="mat-raised-button mat-primary save" (click)="save() ">Save</button>

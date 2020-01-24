@@ -1,0 +1,27 @@
+.input {
+    margin-right: 60px;
+    margin-left: 60px;
+    font-size: larger;
+}
+
+.cancel {
+    margin-left: 400px;
+    margin-right: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: larger;
+    border-radius: 5px;
+}
+
+.sub {
+    margin-left: 60px;
+}
+
+.save {
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    background-color: #053EDC;
+    font-size: larger;
+    border-radius: 5px;
+}

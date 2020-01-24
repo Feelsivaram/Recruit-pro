@@ -1,0 +1,88 @@
+<div class="body">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h3 class="css1">Open Requirements</h3>
+        </div>
+        <div class="col-sm-3 openr">
+            <button type="button" *ngIf="ceo||brd" class="btn btn-info btn-lg m-5  mx-auto d-block loginbutton" (click)="openDialog(element)">+ Add OpenRequirements</button>
+        </div>
+        <div class="col-sm-3 search">
+            <input style="width:100px" class="form-control" type="text" (keyup)="applyFilter($event.target.value)" placeholder="Search" aria-label="Search">
+          </div>
+        <div class="col-sm-3 range">
+            <b style="padding-right:10px;">Showing</b> <input style="border-radius: 5px; width: 75px; height: 42px;" type="number" [value]="l">
+
+        </div>
+    </div>
+
+    <!--Mat Table-->
+
+    <div class="mat-elevation-z8 table">
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+
+            <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+            <!-- Name Column -->
+            <ng-container matColumnDef="client">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Client </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.client}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="vendor">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Vendor</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.vendor}} </mat-cell>
+            </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="skills">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Skills</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.skills}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="visatype">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Visa Type </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.visatype}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="rate">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Rate </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.rate}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="experience">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Experience </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.experience}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="location">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Location </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="assignajobtobrd">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Assign a Job to BRD </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.assignajobtobrd}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="numberofrequirements">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Number of Requirements </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.numberofrequirements}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="contracttype">
+                <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Contract Type </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.contracttype}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let element" class="action-link">
+
+                    <mat-icon (click)="openDialog(DialogData)">Edit</mat-icon>
+                </td>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</div>
+<router-outlet></router-outlet>
