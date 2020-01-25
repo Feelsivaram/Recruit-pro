@@ -6,24 +6,21 @@ import { MatDialog, MatDialogRef, MatDialogConfig } from '@angular/material/dial
 import { FormGroup } from '@angular/forms';
 import { OpenrequirementsComponent } from '../openrequirements/openrequirements.component';
 import { SubmissiontracerComponent } from '../submissiontracer/submissiontracer.component';
+import { UserDetailsService } from '../Services/user-details.service';
 
 export interface PeriodicElement {
-    client: string;
-    vendor: string;
-    skills: string;
-    rate: string;
-    visatype: string;
-    experience: string;
-    location: string;
-    assignajobtobrd: string;
-    numberofrequirements: string;
-    contracttype: string;
-
-
+    TrakerId: number;
+    Date: string;
+    JobId: number;
+    JobTitle: string;
+    Resume: string;
+    ClientSubmission: string;
+    InterviewSchedule: string;
+    Remarks: string;
 }
-const ELEMENT_DATA: PeriodicElement[] = [{ client: 'dhivya', vendor: 'apparao', skills: 'java', rate: '500$', visatype: 'h1b', experience: '5years', location: 'newyork', assignajobtobrd: 'sam', numberofrequirements: '200', contracttype: 'tender' }
 
-
+const ELEMENT_DATA: PeriodicElement[] = [
+    { TrakerId: 1, Date: '12-12-2019', JobId: 1, JobTitle: 'Python Developer', Resume: '1', ClientSubmission: 'Yes', InterviewSchedule: 'Yes', Remarks: 'Under Process' }
 ]
 
 @Component({
@@ -38,9 +35,9 @@ export class SubmissiontrackerComponent implements OnInit {
     tru: boolean = false;
     ceo: boolean;
     bdm: boolean;
-    brd: boolean;
+    brd: boolean = true;
 
-    displayedColumns: string[] = ['client', 'vendor', 'skills', 'visatype', 'rate', 'experience', 'location', 'assignajobtobrd', 'numberofrequirements', 'contracttype', 'edit'];
+    displayedColumns: string[] = ['TrakerId', 'Date', 'JobId', 'JobTitle', 'Resume', 'ClientSubmission', 'InterviewSchedule', 'Remarks', 'edit'];
 
     dataSource = new MatTableDataSource(ELEMENT_DATA);
     @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -48,7 +45,7 @@ export class SubmissiontrackerComponent implements OnInit {
 
     constructor(
         private router: Router, private ds: SService,
-        private dialog: MatDialog) { }
+        private dialog: MatDialog, private userDetials: UserDetailsService) { }
     applyFilter(filtervalue: string) {
         this.dataSource.filter = filtervalue.trim().toLowerCase();
     }
@@ -60,22 +57,23 @@ export class SubmissiontrackerComponent implements OnInit {
         this.profile = this.ds.receivingdata()
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        if (this.ds.receivingdata() == "ceo") {
-        this.ceo = false;
-            this.brd = true;
-            this.bdm = false;
-        }
-        else if (this.ds.receivingdata() == "brd") {
-        this.ceo = false;
-            this.brd = true;
-            this.bdm = false;
-        }
-        else if (this.ds.receivingdata() == "bdm") {
-        this.ceo = false;
-            this.brd = false;
-            this.bdm = true;
-        }
+        // if (this.ds.receivingdata() == "ceo") {
+        //   this.ceo = false;
+        //   this.brd = true;
+        //   this.bdm = false;
+        // }
+        // else if (this.ds.receivingdata() == "brd") {
+        //   this.ceo = false;
+        //   this.brd = true;
+        //   this.bdm = false;
+        // }
+        // else if (this.ds.receivingdata() == "bdm") {
+        //   this.ceo = false;
+        //   this.brd = false;
+        //   this.bdm = true;
+        // }
 
+        if (this.userDetials.getUserType() != "brd") this.brd = false;
 
     }
 
@@ -86,17 +84,11 @@ export class SubmissiontrackerComponent implements OnInit {
 
         dialogConfig.autoFocus = true;
 
-        this.dialog.open(SubmissiontracerComponent, dialogConfig)
-
         dialogConfig.data = {
-
-
+            row: elementData
         };
 
-        this.dialog.open(SubmissiontracerComponent, dialogConfig);
+        this.dialog.open(SubmissiontracerComponent, dialogConfig)
     }
+
 }
-
-
-
-

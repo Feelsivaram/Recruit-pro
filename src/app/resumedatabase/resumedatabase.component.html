@@ -1,63 +1,54 @@
 <div class="resume_name">
-<h2>Resume Database</h2>
+    <h2>Resume Database</h2>
 </div>
-<div class="">
-<button (click)="openDialog(DialogData)" class="loginbutton m-4">+Upload Resume</button>
+<div class="" *ngIf="brd">
+    <button (click)="openDialog()" class="loginbutton m-4">+Upload Resume</button>
 </div>
 <!--Mat Table-->
 
 <div class="mat-elevation-z8 table">
-    <mat-form-field>
+    <!-- <mat-form-field>
         <input type="text" matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-    </mat-form-field>
+    </mat-form-field> -->
     <mat-table [dataSource]="dataSource" matSort>
-        <!--- Note that these columns can be defined in any order.
-      The actual rendered columns are set as a property on the row definition" -->
-        <!-- Name Column -->
+
         <ng-container matColumnDef="name">
             <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Name </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
         </ng-container>
-
-        <!-- Weight Column -->
         <ng-container matColumnDef="email">
             <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Email</mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
         </ng-container>
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="phonenumber">
-            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Phone Number</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.phonenumber}} </mat-cell>
-        </ng-container>
-
         <ng-container matColumnDef="technology">
             <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Technology </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.technology}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="visastatus">
-            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Visa Status </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.visastatus}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="avilabilitystatus">
-            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Avilability Status </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.avilabilitystatus}} </mat-cell>
         </ng-container>
         <ng-container matColumnDef="experience">
             <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Experience </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.experience}} </mat-cell>
         </ng-container>
-        <ng-container matColumnDef="resume">
-            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Resume </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.resume}} </mat-cell>
+        <ng-container matColumnDef="phonenumber">
+            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef>Phone Number</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.phonenumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="visastatus">
+            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Visa Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.visastatus}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="avilabilitystatus">
+            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Avilability Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.avilabilitystatus}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="asignTo">
+            <mat-header-cell class="text" mat-sort-header *matHeaderCellDef> Asign To </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.asignTo}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="edit">
-            <th mat-header-cell *matHeaderCellDef> Edit </th>
-            <td mat-cell *matCellDef="let element" class="action-link">
-
-                <mat-icon (click)="openDialog(DialogData)">Edit</mat-icon>
+            <th mat-header-cell *matHeaderCellDef [hidden]="!brd"> Edit </th>
+            <td mat-cell *matCellDef="let element" class="action-link" [hidden]="!brd">
+                <mat-icon (click)="openDialog(element)">Edit</mat-icon>
             </td>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

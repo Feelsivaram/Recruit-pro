@@ -1,39 +1,40 @@
 <h3 class="sub">Open Requirements</h3><br>
 <form class="example-form">
     <mat-form-field class="input">
-        <input matInput placeholder="Client" value="">
+        <input matInput placeholder="Job Title" autofocus [(ngModel)]="JobDetails.JobTitle" name="JobTitle">
     </mat-form-field>
     <mat-form-field class=" input">
-        <input matInput placeholder="Vendor " value=" ">
+        <input matInput placeholder="Location " value=" ">
     </mat-form-field>
     <mat-form-field class="input ">
-        <input matInput placeholder="jobtitle " value=" ">
+        <input matInput placeholder="Client Name " value=" ">
     </mat-form-field>
-
     <mat-form-field class="input">
-        <input matInput placeholder="skills" value=" ">
-    </mat-form-field>
-    <mat-form-field class="input ">
-        <input matInput placeholder="visaType " value=" ">
+        <input matInput placeholder="Vendor Name" value=" ">
     </mat-form-field>
     <mat-form-field class="input ">
         <input matInput placeholder="Rate " value=" ">
     </mat-form-field>
+    <mat-form-field class="input ">
+        <input matInput placeholder="Contract Type " value=" ">
+    </mat-form-field>
     <mat-form-field class=" input">
-        <input matInput placeholder="experience " value=" ">
+        <input matInput placeholder="Visa Type " value=" ">
     </mat-form-field>
     <mat-form-field class="input ">
-        <input matInput placeholder="Contract Type" value=" ">
+        <input matInput placeholder="Job Created At" value=" ">
     </mat-form-field>
     <mat-form-field class=" input">
         <input matInput placeholder="Assign a Job to Brd " value=" ">
     </mat-form-field>
     <mat-form-field class="input ">
-        <input matInput placeholder="Location " name="location" [(ngModel)]="location" value=" ">
+        <input matInput placeholder="Status " value=" ">
     </mat-form-field>
-    <mat-form-field class=" input">
-        <input matInput placeholder="Number Of Requirements" name="numberofrequirements" [(ngModel)]="numberofreqirements " value=" ">
-    </mat-form-field><br>
-    <button class="mat-raised-button cancel" (click)="onNoClick()">Cancel</button>
-    <button class="mat-raised-button mat-primary save" (click)="save() ">Save</button>
+    <!-- <button class="mat-raised-button cancel" (click)="onNoClick()">Cancel</button>
+    <button class="mat-raised-button mat-primary save" (click)="save() ">Save</button> -->
 </form>
+<mat-dialog-actions align="end">
+    <button class="mat-raised-button cancel" mat-button mat-dialog-close>Cancel</button>
+    <button class="mat-raised-button mat-primary save" mat-button [mat-dialog-close]="true"
+        cdkFocusInitial>Save</button>
+</mat-dialog-actions>

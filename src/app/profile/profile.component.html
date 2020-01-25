@@ -38,29 +38,29 @@
         <div>
             <div class="navimg" style="text-indent:50px">
                 <a href="#d" data-toggle="collapse">
-                    <img src="./../assets\myavathar.png" alt="Avatar" width="50px" height="50px" style="border-radius:50%;"></a>
+                    <img [src]="user.image" alt="Avatar" width="50px" height="50px" style="border-radius:50%;"></a>
                 <div id="d" class="collapse">
-                    <a routerLink="/profile"> {{profile}}</a>
+                    <a routerLink="/profile"> {{user.email}}</a>
                     <p>faqs</p>
-                    <p>logout
+                    <p routerLink="/">logout
                     </p>
                 </div>
             </div>
         </div>
     </nav>
     <h3 style="margin-left:100px; margin-top:210px;"> Profile Settings </h3>
-    <div class="img">
-        <img src="assets/myavatar.png" alt="Avatar" width="150px" height="150px" style="border-radius:50%;">
-
-    </div>
-    <form>
+    <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit(updateUserForm.value)">
+        <div class="img">
+            <img [src]="user.image" alt="Avatar" width="150px" height="150px" style="border-radius:50%;">
+        </div>
         <div class="field">
-            <input type="text" class="input" placeholder="Change Password"><br><br>
-            <input type="tel" class="input" value="Update Phone Number"><br><br>
-            <input type="text" class="input" value="something@gmail.com" disabled><br>
-            <button class="loginbutton"><h5> Save </h5></button>
-
-
+            <input type="file" accept="image/.jpeg,.png,.jpg" (change)="getProfileImage($event)" class="input"><br><br>
+            <input type="text" class="input" formControlName="password" placeholder="Change Password"><br><br>
+            <input type="number" class="input" formControlName="phone" placeholder="Phone number"><br><br>
+            <input type="text" class="input" formControlName="email" placeholder="Email ID" disabled><br>
+            <button class="loginbutton" type="submit">
+                <h5> Save </h5>
+            </button>
         </div>
     </form>
 </body>

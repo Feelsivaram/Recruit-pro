@@ -15,25 +15,24 @@ import { BrdopenrequirementsComponent } from './brdopenrequirements/brdopenrequi
 import { BrdsubmissiontrackerComponent } from './brdsubmissiontracker/brdsubmissiontracker.component';
 import { MainComponent } from './main/main.component';
 
+const routes: Routes = [
+    { path: 'login', component: LoginComponent },
+    {
+        path: 'main', component: MainComponent, children: [
+            { path: "", redirectTo: "addopenrequirements", pathMatch: "full" },
+            { path: 'addopenrequirements', component: AddopenrequirementsComponent },
+            { path: 'submissiontracker', component: SubmissiontrackerComponent },
+            { path: 'resumedatabase', component: ResumedatabaseComponent },
+            { path: 'reportgeneration', component: ReportgenerationComponent },
+            { path: 'scheduleinterview', component: ScheduleinterviewComponent }]
+    },
+    { path: 'profile', component: ProfileComponent },
+    { path: "", redirectTo: "login", pathMatch: "full" }
+];
 
-
-const routes: Routes = [{path:'login',component:LoginComponent},
-
-{path:'main',component:MainComponent,children:[
-  {path:"",redirectTo:"addopenrequirements",pathMatch:"full"},
-  {path:'addopenrequirements',component:AddopenrequirementsComponent},
-  {path:'submissiontracker',component:SubmissiontrackerComponent},
-
-{path:'resumedatabase',component:ResumedatabaseComponent},
-
-{path:'reportgeneration',component:ReportgenerationComponent},
-
-{path:'scheduleinterview',component:ScheduleinterviewComponent}]},
-{path:'profile',component:ProfileComponent},
-
-{path:"",redirectTo:"login",pathMatch:"full"}];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
